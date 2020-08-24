@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Login V1</title>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		body  
+        {  
+            margin: 0;  
+            padding: 0;  
+            background-color:#6abadeba;  
+            font-family: 'Arial';  
+        }  
+        .login
+        {  
+            width: 382px;  
+            overflow: hidden;  
+            margin: auto;  
+            margin: 20 0 0 450px;  
+            padding: 80px;  
+            background: #23463f;  
+            border-radius: 15px ;  
+        }  
+        h2
+        {  
+            text-align: center;  
+            color: #277582;  
+            padding: 20px;  
+        }  
+        label
+        {  
+            color: #08ffd1;  
+            font-size: 17px;  
+        }  
+        #Uname{  
+            width: 300px;  
+            height: 30px;  
+            border: none;  
+            border-radius: 3px;  
+            padding-left: 8px;  
+        }  
+        #Pass
+        {  
+            width: 300px;  
+            height: 30px;  
+            border: none;  
+            border-radius: 3px;  
+            padding-left: 8px;  
+        }  
+        #log
+        {  
+            width: 300px;  
+            height: 30px;  
+            border: none;  
+            border-radius: 17px;  
+            padding-left: 7px;  
+            color: blue;  
+        }  
+        span
+        {  
+            color: white;  
+            font-size: 17px;  
+        }  
+        a
+        {  
+            text-decoration: none;
+            background: none;
+            color: aliceblue;  
+            font-size: 17px;
+            float: right;  
+        }  
+        a:hover{
+            color: cyan;
+        }
+	</style>
+</head>
+<body>
+    <h2>Login Page</h2><br>  
+    <br>
+    <br>
+    {% if usr %}
+        <h2 style="color: navajowhite;">{{ usr }}</h3>
+    {% endif %}  
+    <div class="login">    
+    <form id="login" method="POST" action="{% url 'home' %}">
+		{% csrf_token %}    
+        <label><b>User Name</b></label>    
+        <input type="text" name="username" id="Uname" placeholder="Username" required>    
+        <br><br>    
+        <label><b>Password</b</label>
+        <input type="password" name="password" id='Pass' placeholder="Password" required/>
+        <br><br>    
+        <input type="submit" name="log" id="log" style="color:black;" value="Log In Here">       
+        <br><br> 
+        <br><br>    
+        <a href="/signup" style="float: left;">New User ?</a>   
+        <a href="/admin">Admin User</a>    
+    </form>     
+	</div>    
+</body>
+</html>
